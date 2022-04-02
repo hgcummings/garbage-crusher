@@ -6,9 +6,8 @@
 [node name="Node2D" type="Node2D"]
 
 [node name="KinematicBody2D" parent="." instance=ExtResource( 1 )]
-position = Vector2( 200, 600 )
 
 [node name="KinematicBody2D2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 824, 600 )
+position = Vector2( 974, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]

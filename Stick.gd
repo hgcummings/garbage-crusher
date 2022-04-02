@@ -20,11 +20,8 @@ func _physics_process(delta):
 	velocity = Vector2.ZERO
 		
 func impart(new_velocity):
-	if (velocity.x == 0):
-		velocity = new_velocity
-	
+	velocity = new_velocity
 	return velocity
-
 
 # Debug functionality
 func _on_Stick_input_event(viewport, event, shape_idx):

@@ -34,7 +34,10 @@ position = Vector2( 764, 162 )
 position = Vector2( 677, 162 )
 
 [node name="Stick4" parent="." instance=ExtResource( 4 )]
-position = Vector2( 128, 458 )
+position = Vector2( 129, 455 )
 
 [node name="Stick5" parent="." instance=ExtResource( 4 )]
-position = Vector2( 859, 459 )
+position = Vector2( 858, 455 )
+
+[node name="Stick6" parent="." instance=ExtResource( 4 )]
+position = Vector2( 455, 455 )

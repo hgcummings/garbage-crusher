@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Stick.gd" type="Script" id=1]
 
@@ -6,10 +6,18 @@
 extents = Vector2( 33, 41 )
 
 [sub_resource type="Gradient" id=2]
-colors = PoolColorArray( 0.25098, 0.12549, 0, 1, 0.25098, 0.12549, 0, 1 )
+offsets = PoolRealArray( 0 )
+colors = PoolColorArray( 0.25098, 0.12549, 0, 1 )
 
 [sub_resource type="GradientTexture" id=3]
 gradient = SubResource( 2 )
+
+[sub_resource type="Gradient" id=4]
+offsets = PoolRealArray( 0, 0.5, 1 )
+colors = PoolColorArray( 0.25098, 0.12549, 0, 1, 0.752941, 0.12549, 0, 1, 0.25098, 0.12549, 0, 1 )
+
+[sub_resource type="GradientTexture" id=5]
+gradient = SubResource( 4 )
 
 [node name="Stick" type="KinematicBody2D"]
 input_pickable = true
@@ -22,5 +30,11 @@ shape = SubResource( 1 )
 position = Vector2( -1.49012e-08, -1.78814e-07 )
 scale = Vector2( 0.0319824, 8 )
 texture = SubResource( 3 )
+
+[node name="Sprite_Alarm" type="Sprite" parent="."]
+visible = false
+position = Vector2( -1.10269e-06, 2.38419e-07 )
+scale = Vector2( 0.03125, 8 )
+texture = SubResource( 5 )
 
 [connection signal="input_event" from="." to="." method="_on_Stick_input_event"]

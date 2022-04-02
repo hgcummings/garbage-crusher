@@ -6,6 +6,8 @@ var rng = RandomNumberGenerator.new()
 var strength
 var is_bracing = false
 
+var alert_timer = 0
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	rng.randomize()
@@ -13,9 +15,19 @@ func _ready():
 
 
 func _physics_process(delta):
-	var collision = move_and_collide(velocity)
-	if collision:
-		velocity = collision.collider.impart(velocity)
+	if alert_timer > 0:
+		alert_timer -= delta
+		if alert_timer <= 0:
+			alert_timer = 0
+			$Sprite_Alarm.visible = false
+	
+	if (velocity.x != 0):
+		var collision = move_and_collide(velocity)
+		if collision:
+			velocity = collision.collider.impart(velocity)
+			if velocity.x == 0:
+				$Sprite_Alarm.visible = true
+				alert_timer = .5
 
 	velocity = Vector2.ZERO
 		

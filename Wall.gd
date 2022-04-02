@@ -14,13 +14,12 @@ func _ready():
 	initial_velocity = Vector2(speed, 0)
 	velocity = initial_velocity
 
-func impart(new_velocity):
-	velocity = Vector2.ZERO
-	return velocity
-
 func _physics_process(delta):
 	velocity = initial_velocity
 	var collision = move_and_collide(velocity)
 	if collision:
 		collision.collider.impart(velocity)
 		
+func impart(new_velocity):
+	velocity = Vector2.ZERO
+	return velocity

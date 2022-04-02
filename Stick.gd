@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+const Wall = preload('Wall.gd')
 
 var velocity = Vector2(0,0)
 var rng = RandomNumberGenerator.new()
@@ -15,25 +16,27 @@ func _ready():
 
 
 func _physics_process(delta):
-	if alert_timer > 0:
-		alert_timer -= delta
-		if alert_timer <= 0:
-			alert_timer = 0
-			$Sprite_Alarm.visible = false
+	is_bracing = false
 	
 	if (velocity.x != 0):
 		var collision = move_and_collide(velocity)
 		if collision:
-			velocity = collision.collider.impart(velocity)
+			velocity = collision.collider.impart(velocity, self)
 			if velocity.x == 0:
-				$Sprite_Alarm.visible = true
-				alert_timer = .5
+				is_bracing = true
 
 	velocity = Vector2.ZERO
 		
-func impart(new_velocity):
+func impart(new_velocity, pusher):
 	velocity = new_velocity
 	return velocity
+
+func apply_force(force):
+	if force > strength:
+		self.queue_free()
+	elif force > 0.85 * strength:
+		$Sprite_Alarm.visible = true
+		
 
 # Debug functionality
 func _on_Stick_input_event(viewport, event, shape_idx):

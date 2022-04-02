@@ -12,19 +12,19 @@ func _ready():
 #	pass
 
 func _process(_delta):
-	var bracing_channels = []
+	var braced_channels = []
 	
 	for channel_group in channel_groups:
 		if _check_if_braced(channel_group):
-			bracing_channels.append(channel_group)
+			braced_channels.append(channel_group)
 			
-	if bracing_channels.empty():
+	if braced_channels.empty():
 		return
 	
-	var stress = $LeftWall.stress / bracing_channels.size()
+	var stress = $LeftWall.stress / braced_channels.size()
 	print(stress)
 		
-	for channel_group in bracing_channels:
+	for channel_group in braced_channels:
 		var broke = false
 		for stick in get_tree().get_nodes_in_group(channel_group):
 			if stick.apply_force(stress):

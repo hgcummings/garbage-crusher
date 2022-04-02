@@ -20,7 +20,6 @@ func _physics_process(delta):
 	if collision:
 		while (collision):
 			var collider = collision.collider
-			#print(chain.size())
 			
 			if chain.find(collider) != -1:
 				break
@@ -30,7 +29,6 @@ func _physics_process(delta):
 			else:
 				chain.append(collider)
 				collision = collider.move_and_collide(dv, true, true, true)
-				#print(collision)
 
 	if chain_reaches_opposite_wall:
 		stress += delta * speed

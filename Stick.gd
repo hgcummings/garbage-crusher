@@ -23,6 +23,9 @@ func apply_force(force):
 
 func _process(delta):
 	$Sprite_Braced.visible = is_braced
+	if !is_braced:
+		$Sprite_Alarm.visible = false
+		
 	
 
 # Debug functionality

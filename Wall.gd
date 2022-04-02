@@ -1,41 +1,46 @@
 extends KinematicBody2D
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 export var speed = 1
 
-var initial_velocity
 var velocity
-var force = 0
+var is_braced = false
+var stress = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	initial_velocity = Vector2(speed, 0)
-	velocity = initial_velocity
+	velocity = Vector2(speed * 100, 0)
 
-func _physics_process(delta):
-	if velocity.x == 0:
-		force += (delta * abs(speed))
-	else:
-		force = 0
-	
-	var chain = []
-	var collision = self.move_and_collide(initial_velocity, true, true, true)
+func _physics_process(delta):	
+	var chain = [self]
+		
+	var chain_reaches_opposite_wall = false
+	var dv = delta * velocity
+		
+	var collision = self.move_and_collide(dv, true, true, true)
 	if collision:
 		while (collision):
 			var collider = collision.collider
+			#print(chain.size())
 			
-			if collider is Wall:
-				velocity = Vector2.ZERO
-				return
+			if chain.find(collider) != -1:
+				break
+			elif collider.get_script() == self.get_script():
+				chain_reaches_opposite_wall = true
+				break
 			else:
 				chain.append(collider)
-				collision = collider.move_and_collide(initial_velocity, true, true, true)
-				
-	
-			
+				collision = collider.move_and_collide(dv, true, true, true)
+				#print(collision)
+
+	if chain_reaches_opposite_wall:
+		stress += delta * speed
 		
-func impart(new_velocity, pusher):
-	velocity = Vector2.ZERO
-	return velocity
+		while !chain.empty():
+			chain.pop_back().is_braced = true
+	else:
+		stress = 0
+		
+		while !chain.empty():
+			var elem = chain.pop_back()
+			elem.move_and_collide(dv)
+			elem.is_braced = false

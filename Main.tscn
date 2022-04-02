@@ -33,11 +33,23 @@ position = Vector2( 764, 162 )
 [node name="Stick3" parent="." groups=["channel_1"] instance=ExtResource( 4 )]
 position = Vector2( 677, 162 )
 
-[node name="Stick4" parent="." groups=["channel_2"] instance=ExtResource( 4 )]
-position = Vector2( 129, 455 )
+[node name="Stick4" parent="." groups=["channel_1"] instance=ExtResource( 4 )]
+position = Vector2( 317, 162 )
 
-[node name="Stick5" parent="." groups=["channel_2"] instance=ExtResource( 4 )]
-position = Vector2( 858, 455 )
+[node name="Stick5" parent="." groups=["channel_1"] instance=ExtResource( 4 )]
+position = Vector2( 492, 162 )
 
 [node name="Stick6" parent="." groups=["channel_2"] instance=ExtResource( 4 )]
-position = Vector2( 455, 455 )
+position = Vector2( 198, 455 )
+
+[node name="Stick7" parent="." groups=["channel_2"] instance=ExtResource( 4 )]
+position = Vector2( 493, 455 )
+
+[node name="Stick8" parent="." groups=["channel_2"] instance=ExtResource( 4 )]
+position = Vector2( 334, 455 )
+
+[node name="Stick9" parent="." groups=["channel_2"] instance=ExtResource( 4 )]
+position = Vector2( 652, 455 )
+
+[node name="Stick10" parent="." groups=["channel_2"] instance=ExtResource( 4 )]
+position = Vector2( 818, 455 )

@@ -1,42 +1,29 @@
 extends KinematicBody2D
 
-const Wall = preload('Wall.gd')
-
 var velocity = Vector2(0,0)
 var rng = RandomNumberGenerator.new()
 var strength
-var is_bracing = false
-
-var alert_timer = 0
+var is_braced = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	rng.randomize()
-	strength = rng.randf_range(85, 115)
+	strength = rng.randf_range(2.5, 3.5)
 
-
-func _physics_process(delta):
-	is_bracing = false
-	
-	if (velocity.x != 0):
-		var collision = move_and_collide(velocity)
-		if collision:
-			velocity = collision.collider.impart(velocity, self)
-			if velocity.x == 0:
-				is_bracing = true
-
-	velocity = Vector2.ZERO
-		
-func impart(new_velocity, pusher):
-	velocity = new_velocity
-	return velocity
 
 func apply_force(force):
 	if force > strength:
 		self.queue_free()
-	elif force > 0.85 * strength:
+		return true
+	
+	if force > 0.85 * strength:
 		$Sprite_Alarm.visible = true
-		
+
+	return false
+
+func _process(delta):
+	$Sprite_Braced.visible = is_braced
+	
 
 # Debug functionality
 func _on_Stick_input_event(viewport, event, shape_idx):

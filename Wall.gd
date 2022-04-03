@@ -6,11 +6,21 @@ var velocity
 var is_braced = false
 var stress = 0
 
+const channel_layers = [10,11]
+const wall_layer = 8
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	velocity = Vector2(speed * 100, 0)
+	collision_layer = 0
+	self.set_collision_layer_bit(8, true)
+	
+	self.collision_mask = 0
+	self.set_collision_mask_bit(wall_layer, true)
+	for layer in channel_layers:	
+		self.set_collision_mask_bit(layer, true)
 
-func _physics_process(delta):	
+func _physics_process(delta):
 	var chain = [self]
 		
 	var chain_reaches_opposite_wall = false

@@ -20,6 +20,7 @@ layer=false
 
 [layer_names]
 
+2d_physics/layer_8="Fixtures"
 2d_physics/layer_9="Walls"
 2d_physics/layer_10="Floor"
 2d_physics/layer_11="Channel 1"

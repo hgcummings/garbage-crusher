@@ -2,6 +2,9 @@ extends KinematicBody2D
 
 export var speed = 1
 
+const acceleration_rate = 0.1
+
+var acceleration
 var velocity
 var is_braced = false
 var stress = 0
@@ -9,9 +12,11 @@ var stress = 0
 const channel_layers = [10,11]
 const wall_layer = 8
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	velocity = Vector2(speed * 100, 0)
+	acceleration = speed * acceleration_rate
+	velocity = Vector2(speed, 0)
 	collision_layer = 0
 	self.set_collision_layer_bit(8, true)
 	
@@ -21,6 +26,8 @@ func _ready():
 		self.set_collision_mask_bit(layer, true)
 
 func _physics_process(delta):
+	velocity.x += delta * acceleration
+	
 	var chain = [self]
 		
 	var chain_reaches_opposite_wall = false

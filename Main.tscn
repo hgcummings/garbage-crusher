@@ -1,19 +1,20 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Wall.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Channel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ChannelStick.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Main.gd" type="Script" id=5]
+[ext_resource path="res://Chute.tscn" type="PackedScene" id=6]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 5 )
 
 [node name="Channel" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1, 157 )
+position = Vector2( 512, 180 )
 
 [node name="Channel2" parent="." instance=ExtResource( 2 )]
-position = Vector2( -3, 450 )
+position = Vector2( 512, 420 )
 
 [node name="LeftWall" parent="." instance=ExtResource( 1 )]
 
@@ -25,51 +26,58 @@ speed = -1
 position = Vector2( 516, -67 )
 
 [node name="Stick" parent="." groups=["channel_1"] instance=ExtResource( 4 )]
-position = Vector2( 182, 162 )
+position = Vector2( 182, 180 )
 collision_layer = 1024
 collision_mask = 1280
 
 [node name="Stick2" parent="." groups=["channel_1"] instance=ExtResource( 4 )]
-position = Vector2( 764, 162 )
+position = Vector2( 764, 180 )
 collision_layer = 1024
 collision_mask = 1280
 
 [node name="Stick3" parent="." groups=["channel_1"] instance=ExtResource( 4 )]
-position = Vector2( 677, 162 )
+position = Vector2( 677, 180 )
 collision_layer = 1024
 collision_mask = 1280
 
 [node name="Stick4" parent="." groups=["channel_1"] instance=ExtResource( 4 )]
-position = Vector2( 317, 162 )
+position = Vector2( 317, 180 )
 collision_layer = 1024
 collision_mask = 1280
 
 [node name="Stick5" parent="." groups=["channel_1"] instance=ExtResource( 4 )]
-position = Vector2( 492, 162 )
+position = Vector2( 492, 180 )
 collision_layer = 1024
 collision_mask = 1280
 
 [node name="Stick6" parent="." groups=["channel_2"] instance=ExtResource( 4 )]
-position = Vector2( 198, 455 )
+position = Vector2( 198, 420 )
 collision_layer = 2048
 collision_mask = 2304
 
 [node name="Stick7" parent="." groups=["channel_2"] instance=ExtResource( 4 )]
-position = Vector2( 493, 455 )
+position = Vector2( 493, 420 )
 collision_layer = 2048
 collision_mask = 2304
 
 [node name="Stick8" parent="." groups=["channel_2"] instance=ExtResource( 4 )]
-position = Vector2( 334, 455 )
+position = Vector2( 334, 420 )
 collision_layer = 2048
 collision_mask = 2304
 
 [node name="Stick9" parent="." groups=["channel_2"] instance=ExtResource( 4 )]
-position = Vector2( 652, 455 )
+position = Vector2( 652, 420 )
 collision_layer = 2048
 collision_mask = 2304
 
 [node name="Stick10" parent="." groups=["channel_2"] instance=ExtResource( 4 )]
-position = Vector2( 818, 455 )
+position = Vector2( 818, 420 )
 collision_layer = 2048
 collision_mask = 2304
+
+[node name="Chute" parent="." instance=ExtResource( 6 )]
+position = Vector2( 512, 0 )
+
+[node name="Chute2" parent="." instance=ExtResource( 6 )]
+position = Vector2( 512, 600 )
+rotation = 3.14159

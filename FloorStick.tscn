@@ -10,9 +10,11 @@ colors = PoolColorArray( 0.25098, 0.12549, 0, 1 )
 [sub_resource type="GradientTexture" id=3]
 gradient = SubResource( 2 )
 
-[node name="ChannelStick" type="RigidBody2D"]
+[node name="FloorStick" type="RigidBody2D"]
 collision_layer = 512
-collision_mask = 512
+collision_mask = 768
+linear_damp = 1.0
+angular_damp = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )

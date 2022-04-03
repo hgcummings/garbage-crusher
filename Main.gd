@@ -22,8 +22,7 @@ func _process(_delta):
 		return
 	
 	var stress = $LeftWall.stress / braced_channels.size()
-	print(stress)
-		
+	
 	for channel_group in braced_channels:
 		var broke = false
 		for stick in get_tree().get_nodes_in_group(channel_group):

@@ -18,5 +18,6 @@ func _process(delta):
 		new_stick.position = self.position
 		new_stick.angular_velocity = rng.randf_range(-0.5, 0.5)
 		new_stick.linear_velocity = Vector2(rng.randf_range(-100, 100), rng.randf_range(50, 150) * y_direction)
+		new_stick.strength = rng.randf_range(2.5, 3.5)
 		get_tree().get_root().add_child(new_stick)
 

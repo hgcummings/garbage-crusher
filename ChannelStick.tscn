@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Stick.gd" type="Script" id=1]
+[ext_resource path="res://ChannelStick.gd" type="Script" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 33, 5 )
@@ -26,7 +26,7 @@ colors = PoolColorArray( 0.25098, 0.12549, 0, 1, 0.752941, 0.12549, 0, 1, 0.2509
 [sub_resource type="GradientTexture" id=5]
 gradient = SubResource( 4 )
 
-[node name="Stick" type="KinematicBody2D"]
+[node name="ChannelStick" type="KinematicBody2D"]
 input_pickable = true
 collision/safe_margin = 0.02
 script = ExtResource( 1 )

@@ -23,7 +23,7 @@ position = Vector2( 974, 0 )
 speed = -1
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 516, -67 )
+position = Vector2( 659.675, 74.4302 )
 
 [node name="Stick" parent="." groups=["channel_1"] instance=ExtResource( 4 )]
 position = Vector2( 182, 180 )

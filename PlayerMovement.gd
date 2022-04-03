@@ -26,7 +26,7 @@ func handle_drop():
 	
 	heldItem.global_position = $HeldItemSprite.global_position
 	heldItem.angular_velocity = rng.randf_range(-random_throw_angular_velocity, random_throw_angular_velocity)
-	heldItem.linear_velocity = rng.randf_range(0, random_throw_velocity) * $RayCast2D.cast_to
+	heldItem.linear_velocity = rng.randf_range(0, random_throw_velocity) * ($HeldItemSprite.global_position - global_position)
 	if rng.randi_range(0, 20) == 0:
 		heldItem.linear_velocity = 20 * $RayCast2D.cast_to
 		
@@ -43,14 +43,16 @@ func process_inputs():
 		inputDirection += Vector2.LEFT
 	if Input.is_action_pressed("right_%s" % player_number):
 		inputDirection += Vector2.RIGHT
-		
+	
+	
 	if Input.is_action_just_released("interact_%s" % player_number):
 		if heldItem == null:
 			handle_pick_up()
 		else:
 			handle_drop()
-
 func _physics_process(delta):
 	process_inputs()
-	movementVector = inputDirection * SPEED
+	movementVector = inputDirection.normalized() * SPEED
+	if inputDirection != Vector2.ZERO:
+		rotation = atan2(inputDirection.y, inputDirection.x) - PI/2
 	move_and_slide(movementVector)

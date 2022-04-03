@@ -28,7 +28,7 @@ func handle_drop():
 	heldItem.angular_velocity = rng.randf_range(-random_throw_angular_velocity, random_throw_angular_velocity)
 	heldItem.linear_velocity = rng.randf_range(0, random_throw_velocity) * ($HeldItemSprite.global_position - global_position)
 	if rng.randi_range(0, 20) == 0:
-		heldItem.linear_velocity = 20 * $RayCast2D.cast_to
+		heldItem.linear_velocity = 20 * ($HeldItemSprite.global_position - global_position)
 		
 	heldItem = null
 

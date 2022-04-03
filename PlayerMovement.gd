@@ -18,6 +18,10 @@ func handle_pick_up():
 	heldItem = $RayCast2D.get_collider()
 	if heldItem == null:
 		return
+	
+	if heldItem.has_method("get_interactable"):
+		heldItem = heldItem.get_interactable()	
+	
 	get_tree().get_root().call_deferred("remove_child", heldItem)
 	
 	$HeldItemSprite.add_child(heldItem.get_node("Sprite").duplicate())

@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://FloorStick.gd" type="Script" id=1]
+[ext_resource path="res://InteractiveChild.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 33, 5 )
@@ -11,6 +12,9 @@ colors = PoolColorArray( 0.25098, 0.12549, 0, 1 )
 
 [sub_resource type="GradientTexture" id=3]
 gradient = SubResource( 2 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 60, 5 )
 
 [node name="FloorStick" type="RigidBody2D"]
 collision_layer = 512
@@ -26,5 +30,13 @@ shape = SubResource( 1 )
 position = Vector2( -1.49012e-08, -1.78814e-07 )
 scale = Vector2( 0.0319824, 8 )
 texture = SubResource( 3 )
+
+[node name="PickupArea" type="Area2D" parent="."]
+collision_layer = 4096
+collision_mask = 0
+script = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea"]
+shape = SubResource( 4 )
 
 [connection signal="input_event" from="." to="." method="_on_Stick_input_event"]

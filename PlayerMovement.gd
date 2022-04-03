@@ -2,14 +2,16 @@ extends KinematicBody2D
 
 var rng = RandomNumberGenerator.new()
 
-export var SPEED = 500
+export var SPEED = 360
+export var ANGULAR_SPEED_DEGS = 5
 export var random_throw_velocity = 5.0
 export var random_throw_angular_velocity = 1.0
 
 var heldItem = null
 export var player_number = 1
 
-var inputDirection = Vector2.ZERO
+var inputLinearDirection = 0
+var inputAngularDirection = 0
 var movementVector = Vector2.ZERO
 
 func handle_pick_up():
@@ -34,15 +36,16 @@ func handle_drop():
 
 func process_inputs():
 	# Process inputs
-	inputDirection = Vector2.ZERO
+	inputLinearDirection = 0
+	inputAngularDirection = 0
 	if Input.is_action_pressed("up_%s" % player_number):
-		inputDirection += Vector2.UP
+		inputLinearDirection += 1
 	if Input.is_action_pressed("down_%s" % player_number):
-		inputDirection += Vector2.DOWN
+		inputLinearDirection -= 0.5
 	if Input.is_action_pressed("left_%s" % player_number):
-		inputDirection += Vector2.LEFT
+		inputAngularDirection -= 1
 	if Input.is_action_pressed("right_%s" % player_number):
-		inputDirection += Vector2.RIGHT
+		inputAngularDirection += 1 
 	
 	
 	if Input.is_action_just_released("interact_%s" % player_number):
@@ -50,9 +53,13 @@ func process_inputs():
 			handle_pick_up()
 		else:
 			handle_drop()
+			
 func _physics_process(delta):
 	process_inputs()
-	movementVector = inputDirection.normalized() * SPEED
-	if inputDirection != Vector2.ZERO:
-		rotation = atan2(inputDirection.y, inputDirection.x) - PI/2
-	move_and_slide(movementVector)
+
+	rotation_degrees += (inputAngularDirection * ANGULAR_SPEED_DEGS) % 360
+	
+	movementVector = Vector2(cos(rotation + PI / 2), sin(rotation + PI / 2)) * inputLinearDirection * SPEED
+	
+	if inputLinearDirection != 0:
+		move_and_slide(movementVector)

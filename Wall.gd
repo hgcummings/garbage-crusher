@@ -8,6 +8,7 @@ var acceleration
 var velocity
 var is_braced = false
 var stress = 0
+var player
 
 const channel_layers = [10,11]
 const wall_layer = 8
@@ -24,6 +25,8 @@ func _ready():
 	self.set_collision_mask_bit(wall_layer, true)
 	for layer in channel_layers:	
 		self.set_collision_mask_bit(layer, true)
+	
+	player = get_node("/root/Node2D/Player")
 
 func _physics_process(delta):
 	velocity.x += delta * acceleration
@@ -32,7 +35,9 @@ func _physics_process(delta):
 		
 	var chain_reaches_opposite_wall = false
 	var dv = delta * velocity
-		
+	
+	add_collision_exception_with(player)
+	
 	var collision = self.move_and_collide(dv, true, true, true)
 	if collision:
 		while (collision):
@@ -59,3 +64,5 @@ func _physics_process(delta):
 			var elem = chain.pop_back()
 			elem.move_and_collide(dv)
 			elem.is_braced = false
+
+	remove_collision_exception_with(player)

@@ -10,8 +10,6 @@ var y_direction
 func _ready():
 	rng.randomize()
 	y_direction = ((get_viewport_rect().size / 2) - self.position).normalized().y
-	print(y_direction)
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

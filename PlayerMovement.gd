@@ -9,6 +9,8 @@ export var ANGULAR_SPEED_DEGS = 5
 export var random_throw_velocity = 5.0
 export var random_throw_angular_velocity = 1.0
 
+onready var channel1 = get_node("/root/Node2D/Channels/Channel1")
+onready var channel2 = get_node("/root/Node2D/Channels/Channel2")
 var heldItem = null
 export var player_number = 1
 
@@ -31,27 +33,25 @@ func handle_pick_up():
 	if heldItem == null:
 		return
 	
-	if heldItem in get_node("/root/Node2D/Channels/Channel1/Contents").get_children():
-		get_node("/root/Node2D/Channels/Channel1/Contents").call_deferred("remove_child", heldItem)
-	elif heldItem in get_node("/root/Node2D/Channels/Channel2/Contents").get_children():
-		get_node("/root/Node2D/Channels/Channel2/Contents").call_deferred("remove_child", heldItem)
+	if heldItem in channel1.get_node("Contents").get_children():
+		channel1.get_node("Contents").call_deferred("remove_child", heldItem)
+	elif heldItem in channel2.get_node("Contents").get_children():
+		channel2.get_node("Contents").call_deferred("remove_child", heldItem)
 	else:
 		get_tree().get_root().call_deferred("remove_child", heldItem)
 	
 	$HeldItemSprite.add_child(heldItem.get_node("Sprite").duplicate())
-	$HeldItemSprite.add_child(heldItem.get_node("CollisionShape2D").duplicate())
 
 func handle_drop():
 	heldItem = convert_stick_type(heldItem, "floor")
 	
 	var areas = $HeldItemSprite.get_overlapping_areas()
 	
-	for child in $HeldItemSprite.get_children():
-		child.queue_free()
+	$HeldItemSprite.get_node("Sprite").queue_free()
 			
-	if get_node("/root/Node2D/Channels/Channel1/") in areas:
+	if channel1 in areas:
 		print("channel1")
-	if get_node("/root/Node2D/Channels/Channel2/") in areas:
+	if channel2 in areas:
 		print("channel2")	
 	
 	get_tree().get_root().call_deferred("add_child", heldItem)

@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://PlayerMovement.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 32 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 9.77343, 8.73976 )
 
 [node name="Player" type="KinematicBody2D"]
 z_index = 10
@@ -24,3 +27,8 @@ collision_mask = 3584
 
 [node name="HeldItemSprite" type="Area2D" parent="."]
 position = Vector2( 0, 52 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HeldItemSprite"]
+position = Vector2( 0.11799, -7.64411 )
+scale = Vector2( 1.5526, -1.44447 )
+shape = SubResource( 2 )

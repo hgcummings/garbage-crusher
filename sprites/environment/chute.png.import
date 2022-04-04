@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/sprite-blue-holding.png-c5d33ace29973d0a43a70e94c9d5aae5.stex"
+path="res://.import/chute.png-960cbbe3aadfe4ec49e383523ea2d836.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/sprite-blue-holding.png"
-dest_files=[ "res://.import/sprite-blue-holding.png-c5d33ace29973d0a43a70e94c9d5aae5.stex" ]
+source_file="res://sprites/environment/chute.png"
+dest_files=[ "res://.import/chute.png-960cbbe3aadfe4ec49e383523ea2d836.stex" ]
 
 [params]
 

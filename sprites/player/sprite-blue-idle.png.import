@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/chute-top.png-a64512b605a17a279c796d44d0853391.stex"
+path="res://.import/sprite-blue-idle.png-5b7e3e79e33d5d8a326d2ccc01f6b583.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/chute-top.png"
-dest_files=[ "res://.import/chute-top.png-a64512b605a17a279c796d44d0853391.stex" ]
+source_file="res://sprites/player/sprite-blue-idle.png"
+dest_files=[ "res://.import/sprite-blue-idle.png-5b7e3e79e33d5d8a326d2ccc01f6b583.stex" ]
 
 [params]
 

@@ -8,9 +8,9 @@
 [ext_resource path="res://Chute.tscn" type="PackedScene" id=6]
 [ext_resource path="res://StaticWall.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Hole.tscn" type="PackedScene" id=8]
-[ext_resource path="res://sprites/sprite-pink-holding.png" type="Texture" id=9]
-[ext_resource path="res://sprites/sprite-pink-idle.png" type="Texture" id=10]
-[ext_resource path="res://sprites/sprite-pink-busy.png" type="Texture" id=12]
+[ext_resource path="res://sprites/player/sprite-pink-holding.png" type="Texture" id=9]
+[ext_resource path="res://sprites/player/sprite-pink-idle.png" type="Texture" id=10]
+[ext_resource path="res://sprites/player/sprite-pink-busy.png" type="Texture" id=12]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 5 )

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/sprite-pink-holding.png-fdb8acfedea289542101e9eb7111c328.stex"
+path="res://.import/sprite-blue-holding.png-036d6fb95e1abec3112a340e737d0cd8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/sprite-pink-holding.png"
-dest_files=[ "res://.import/sprite-pink-holding.png-fdb8acfedea289542101e9eb7111c328.stex" ]
+source_file="res://sprites/player/sprite-blue-holding.png"
+dest_files=[ "res://.import/sprite-blue-holding.png-036d6fb95e1abec3112a340e737d0cd8.stex" ]
 
 [params]
 

@@ -3,22 +3,6 @@ extends KinematicBody2D
 var FloorStick = load("res://FloorStick.tscn")
 var Helpers = load("res://StickHelpers.gd")
 
-var tex_2 = preload("res://sprites/materials/sticks/2.png")
-var tex_2_braced = preload("res://sprites/materials/sticks/2-braced.png")
-var tex_2_alert = preload("res://sprites/materials/sticks/2-alert.png")
-
-var tex_3 = preload("res://sprites/materials/sticks/3.png")
-var tex_3_braced = preload("res://sprites/materials/sticks/3-braced.png")
-var tex_3_alert = preload("res://sprites/materials/sticks/3-alert.png")
-
-var tex_4 = preload("res://sprites/materials/sticks/4.png")
-var tex_4_braced = preload("res://sprites/materials/sticks/4-braced.png")
-var tex_4_alert = preload("res://sprites/materials/sticks/4-alert.png")
-
-var tex_5 = preload("res://sprites/materials/sticks/5.png")
-var tex_5_braced = preload("res://sprites/materials/sticks/5-braced.png")
-var tex_5_alert = preload("res://sprites/materials/sticks/5-alert.png")
-
 var velocity = Vector2(0,0)
 var rng = RandomNumberGenerator.new()
 var strength
@@ -27,6 +11,9 @@ var is_braced = false
 
 var left_wall
 var right_wall
+
+var stick_material = "wood"
+var stick_status = "metal"
 
 func _ready():
 	rng.randomize()
@@ -40,7 +27,11 @@ func apply_force(force):
 		return true
 	
 	if force > 0.85 * strength:
-		$Sprite_Alarm.visible = true
+		stick_status = "alert"
+	else:
+		stick_status = "braced"
+
+	_update_sprite()
 
 	return false
 
@@ -62,33 +53,13 @@ func upgrade(strength):
 		
 	self.level += 1
 	self.strength += strength
-	if self.level == 2:
-		$Sprite.texture = tex_2
-		$Sprite_Braced.texture = tex_2_braced
-		$Sprite_Alarm.texture = tex_2_alert
-	elif self.level == 3:
-		$Sprite.texture = tex_3
-		$Sprite_Braced.texture = tex_3_braced
-		$Sprite_Alarm.texture = tex_3_alert
-	elif self.level == 4:
-		$Sprite.texture = tex_4
-		$Sprite_Braced.texture = tex_4_braced
-		$Sprite_Alarm.texture = tex_4_alert
-	elif self.level == 5:
-		$Sprite.texture = tex_5
-		$Sprite_Braced.texture = tex_5_braced
-		$Sprite_Alarm.texture = tex_5_alert
 	return true
 
 func highlight():
 	$Sprite.modulate = Color(2,2,2)
-	$Sprite_Braced.modulate = Color(2,2,2)
-	$Sprite_Alarm.modulate = Color(2,2,2)	
 	
 func unhighlight():
 	$Sprite.modulate = Color(1,1,1)
-	$Sprite_Braced.modulate = Color(1,1,1)
-	$Sprite_Alarm.modulate = Color(1,1,1)
 	
 func _physics_process(delta):
 	if is_braced:
@@ -101,9 +72,12 @@ func _physics_process(delta):
 	add_collision_exception_with(right_wall)
 
 func _process(delta):
-	$Sprite_Braced.visible = is_braced
 	if !is_braced:
-		$Sprite_Alarm.visible = false
+		stick_status = "default"
+	_update_sprite()
+
+func _update_sprite():
+	$Sprite.texture = Helpers.textures[stick_material][stick_status][level - 1]
 
 # Debug functionality
 func _on_Stick_input_event(viewport, event, shape_idx):

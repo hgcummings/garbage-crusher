@@ -46,7 +46,7 @@ const STICK_MARGIN = -1
 func _check_if_braced(channel):
 	var distance_between_walls = $RightWall.global_position.x - $LeftWall.global_position.x
 	
-	if distance_between_walls == 0:
+	if distance_between_walls < 5:
 		GlobalTimer.latest_time = (OS.get_ticks_msec() - start_time) / 1000
 		get_tree().change_scene("res://EndScreen.tscn")
 		return

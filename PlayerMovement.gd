@@ -15,6 +15,7 @@ onready var channel2 = get_node("/root/Node2D/Channels/Channel2")
 var heldItem = null
 export var player_number = 1
 export(Texture) var idle_sprite setget set_idle_sprite
+export(Texture) var holding_sprite
 export(Texture) var busy_sprite
 
 var inputLinearDirection = 0
@@ -72,21 +73,38 @@ func process_inputs():
 	# Process inputs
 	inputLinearDirection = 0
 	inputAngularDirection = 0
+	
+		
+	var is_busy = false
+	
 	if Input.is_action_pressed("up_%s" % player_number):
 		inputLinearDirection += 1
+		is_busy = true
 	if Input.is_action_pressed("down_%s" % player_number):
 		inputLinearDirection -= 0.5
+		is_busy = true
 	if Input.is_action_pressed("left_%s" % player_number):
 		inputAngularDirection -= 1
+		is_busy = true
 	if Input.is_action_pressed("right_%s" % player_number):
-		inputAngularDirection += 1 
+		inputAngularDirection += 1
+		is_busy = true
 	
-	
+	if Input.is_action_pressed("interact_%s" % player_number):
+		is_busy = true
+
 	if Input.is_action_just_released("interact_%s" % player_number):
 		if heldItem == null:
 			handle_pick_up()
 		else:
 			handle_drop()
+			
+	if is_busy:
+		get_node("Sprite").texture = busy_sprite
+	elif heldItem:
+		get_node("Sprite").texture = holding_sprite
+	else:
+		get_node("Sprite").texture = idle_sprite
 			
 func _physics_process(delta):
 	process_inputs()

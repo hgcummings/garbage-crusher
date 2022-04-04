@@ -37,14 +37,14 @@ func handle_drop():
 	heldItem = heldItem.as_floor_stick()
 	
 	var areas = $HeldItemSprite.get_overlapping_areas()
-	
-	$HeldItemSprite.get_node("Sprite").queue_free()
 	heldItem.global_position = $HeldItemSprite.global_position
 	
 	if channel1 in areas:
-		channel1.add_stick(heldItem)
+		if not channel1.add_stick(heldItem):
+			return
 	elif channel2 in areas:
-		channel2.add_stick(heldItem)
+		if not channel2.add_stick(heldItem):
+			return
 	else:
 		get_tree().get_root().call_deferred("add_child", heldItem)
 		heldItem.angular_velocity = rng.randf_range(-random_throw_angular_velocity, random_throw_angular_velocity)
@@ -52,6 +52,7 @@ func handle_drop():
 		if rng.randi_range(0, 20) == 0:
 			heldItem.linear_velocity = 20 * ($HeldItemSprite.global_position - global_position)
 			
+	$HeldItemSprite.get_node("Sprite").queue_free()
 	heldItem = null
 
 func process_inputs():

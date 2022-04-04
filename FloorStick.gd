@@ -19,5 +19,5 @@ func as_channel_stick():
 func highlight():
 	$Sprite.modulate = Color(2,2,2)
 
-func _process(delta):
+func unhighlight():
 	$Sprite.modulate = Color(1,1,1)

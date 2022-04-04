@@ -21,6 +21,7 @@ export(Texture) var busy_sprite
 var inputLinearDirection = 0
 var inputAngularDirection = 0
 var movementVector = Vector2.ZERO
+var highlighted_object = null;
 
 func set_idle_sprite(tex):
 	idle_sprite = tex
@@ -122,5 +123,13 @@ func _physics_process(delta):
 
 func _process(delta):
 	var object = $RayCast2D.get_collider()
+	if object and object.has_method("get_interactable"):
+		object = object.get_interactable()	
+		
+	if object != highlighted_object:
+		if highlighted_object and highlighted_object.has_method("unhighlight"):
+			highlighted_object.unhighlight()
 	if object and object.has_method("highlight"):
-		object.highlight()
+		highlighted_object = object
+		highlighted_object.highlight()
+		

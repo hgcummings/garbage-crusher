@@ -16,8 +16,12 @@ var initial_speed = MAX_SPEED / 2
 onready var channel1 = get_node("/root/Node2D/Channels/Channel1")
 onready var channel2 = get_node("/root/Node2D/Channels/Channel2")
 
-onready var chute1 = get_node("/root/Node2D/Chute1")
-onready var chute2 = get_node("/root/Node2D/Chute2")
+onready var initial_exceptions = [
+	get_node("/root/Node2D/Chute1"),
+	get_node("/root/Node2D/Chute2"),
+	get_node("/root/Node2D/TopWall"),
+	get_node("/root/Node2D/BottomWall")
+]
 
 var heldItem = null
 export var player_number = 1
@@ -85,7 +89,6 @@ func process_inputs():
 	inputLinearDirection = 0
 	inputAngularDirection = 0
 	
-		
 	var is_busy = false
 	
 	if Input.is_action_pressed("up_%s" % player_number):
@@ -122,16 +125,18 @@ func _physics_process(delta):
 		initial_delay -= delta
 		return
 	elif initial_speed > 0:
-		add_collision_exception_with(chute1)
-		add_collision_exception_with(chute2)
+		for object in initial_exceptions:
+			add_collision_exception_with(object)
 		
 		speed = initial_speed
 		inputLinearDirection = 1
 		initial_speed -= (delta * acceleration / 4)
 	else:
-		
-		remove_collision_exception_with(chute1)
-		remove_collision_exception_with(chute2)
+		if initial_exceptions:
+			for object in initial_exceptions:
+				remove_collision_exception_with(object)
+				initial_exceptions = null
+			
 		process_inputs()
 
 		rotation_degrees += (inputAngularDirection * ANGULAR_SPEED_DEGS) % 360
@@ -146,6 +151,8 @@ func _physics_process(delta):
 	move_and_slide(movementVector)
 
 func _process(delta):
+	$RayCast2D.set_collision_mask_bit(13, heldItem != null)
+	
 	var object = $RayCast2D.get_collider()
 	if object && object.has_method("get_interactable"):
 		object = object.get_interactable()	

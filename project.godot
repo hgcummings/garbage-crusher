@@ -80,9 +80,10 @@ interact_2={
 2d_physics/layer_8="Fixtures"
 2d_physics/layer_9="Walls"
 2d_physics/layer_10="Floor"
-2d_physics/layer_11="Channel 1"
-2d_physics/layer_12="Channel 2"
+2d_physics/layer_11="Channel 1 sticks"
+2d_physics/layer_12="Channel 2 sticks"
 2d_physics/layer_13="Interactables"
+2d_physics/layer_14="Channels"
 
 [physics]
 

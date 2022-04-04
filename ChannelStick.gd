@@ -54,13 +54,13 @@ func get_length():
 	return $CollisionShape2D.shape.extents.x * 2
 
 func upgrade(upgrade_stick):
-	if self.level >= 5:
+	if self.level + upgrade_stick.level > 5:
 		return false
 		
 	if self.stick_material != upgrade_stick.stick_material:
 		return false
 		
-	self.level += 1
+	self.level += upgrade_stick.level
 	self.strength += upgrade_stick.strength
 	return true
 

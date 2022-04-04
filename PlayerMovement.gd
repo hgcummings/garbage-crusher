@@ -2,10 +2,13 @@ extends KinematicBody2D
 
 var rng = RandomNumberGenerator.new()
 
-export var SPEED = 360
+export var MAX_SPEED = 360
 export var ANGULAR_SPEED_DEGS = 5
 export var random_throw_velocity = 5.0
 export var random_throw_angular_velocity = 1.0
+
+var speed = 0
+var acceleration = MAX_SPEED * 3
 
 onready var channel1 = get_node("/root/Node2D/Channels/Channel1")
 onready var channel2 = get_node("/root/Node2D/Channels/Channel2")
@@ -80,6 +83,11 @@ func _physics_process(delta):
 
 	rotation_degrees += (inputAngularDirection * ANGULAR_SPEED_DEGS) % 360
 	
-	movementVector = Vector2(cos(rotation + PI / 2), sin(rotation + PI / 2)) * inputLinearDirection * SPEED
+	if inputLinearDirection == 0:
+		speed = 0
+	else:
+		speed += acceleration * delta
+	
+	movementVector = Vector2(cos(rotation + PI / 2), sin(rotation + PI / 2)) * inputLinearDirection * speed
 	
 	move_and_slide(movementVector)

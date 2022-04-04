@@ -6,7 +6,7 @@
 [ext_resource path="res://sprites/materials/sticks/1-braced.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 33, 6 )
+extents = Vector2( 33, 5 )
 
 [node name="ChannelStick" type="KinematicBody2D"]
 collision_mask = 4097

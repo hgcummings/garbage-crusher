@@ -32,12 +32,17 @@ func _ready():
 	get_node("Sprite").texture = idle_sprite
 	
 func handle_pick_up():
-	heldItem = $RayCast2D.get_collider()
-	if heldItem == null:
+	var tempItem = $RayCast2D.get_collider()
+	if not tempItem:
 		return
-	
-	if heldItem.has_method("get_interactable"):
-		heldItem = heldItem.get_interactable()	
+		
+	if tempItem.has_method("get_interactable"):
+		tempItem = tempItem.get_interactable()	
+		
+	if tempItem.has_method("as_channel_stick"):
+		heldItem = tempItem
+	else: 
+		return
 	
 	if heldItem in channel1.get_node("Contents").get_children():
 		channel1.get_node("Contents").call_deferred("remove_child", heldItem)

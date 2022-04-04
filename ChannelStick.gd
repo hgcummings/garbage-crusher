@@ -19,7 +19,7 @@ func _ready():
 	rng.randomize()
 	
 	if stick_material == "wood":
-		strength = rng.randf_range(10, 50)
+		strength = rng.randf_range(50, 100)
 	else:
 		strength = rng.randf_range(250, 350)
 

@@ -2,8 +2,8 @@ extends KinematicBody2D
 
 export var direction = 1
 
-const SPEED = 0.25
-const ACCELERATION_RATE = 0.1
+const SPEED = 0.2
+const ACCELERATION_RATE = 0.15
 
 var acceleration
 var velocity

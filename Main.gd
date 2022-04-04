@@ -34,9 +34,22 @@ func _process(_delta):
 		$LeftWall.is_braced = false
 		$RightWall.is_braced = false
 
+const MARGIN = 0
+const STICK_MARGIN = -1
 				
 func _check_if_braced(channel):
-	for stick in channel.get_node("Contents").get_children():
-		if (stick.is_braced):
-			return true
-	return false
+	var distance_between_walls = $RightWall.global_position.x - $LeftWall.global_position.x
+	var sticks = channel.get_node("Contents").get_children()
+	var sticks_length = 0
+		
+	for stick in sticks:
+		sticks_length += stick.get_length() + STICK_MARGIN
+
+	print(sticks_length, " ", distance_between_walls)
+
+	var is_braced = distance_between_walls < sticks_length + MARGIN
+	
+	for stick in sticks:
+		stick.is_braced = is_braced
+		
+	return is_braced	

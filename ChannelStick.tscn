@@ -11,6 +11,7 @@ colors = PoolColorArray( 0.25098, 0.12549, 0, 1 )
 
 [sub_resource type="GradientTexture" id=3]
 gradient = SubResource( 2 )
+width = 33
 
 [sub_resource type="Gradient" id=6]
 offsets = PoolRealArray( 0, 0.5, 1 )
@@ -35,7 +36,7 @@ shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( -1.49012e-08, -1.78814e-07 )
-scale = Vector2( 0.0319824, 8 )
+scale = Vector2( 2, 8 )
 texture = SubResource( 3 )
 
 [node name="Sprite_Braced" type="Sprite" parent="."]

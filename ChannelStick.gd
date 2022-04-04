@@ -35,21 +35,20 @@ func as_floor_stick():
 func as_channel_stick():
 	return self
 
+func get_length():
+	# The width of a RectangleShape2D is twice the extent
+	return $CollisionShape2D.shape.extents.x * 2
+
 func _physics_process(delta):
 	if is_braced:
 		return
 	
 	remove_collision_exception_with(left_wall)
 	remove_collision_exception_with(right_wall)
-	var test_collision = move_and_collide(Vector2.ZERO, true, true, true)
-	if (test_collision && test_collision.travel.y != 0):
-		is_braced = true
-		pass
-	else:
-		move_and_collide(Vector2.ZERO)
+	move_and_collide(Vector2.ZERO)
 	add_collision_exception_with(left_wall)
 	add_collision_exception_with(right_wall)
-		
+
 func _process(delta):
 	$Sprite_Braced.visible = is_braced
 	if !is_braced:

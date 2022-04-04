@@ -77,9 +77,11 @@ collision_layer = 2048
 collision_mask = 2304
 
 [node name="LeftWall" parent="." instance=ExtResource( 1 )]
+position = Vector2( 0, 300 )
 
 [node name="RightWall" parent="." instance=ExtResource( 1 )]
-position = Vector2( 974, 0 )
+position = Vector2( 1024, 300 )
+rotation = 3.14159
 direction = -1
 
 [node name="Player" parent="." instance=ExtResource( 3 )]

@@ -4,6 +4,7 @@ var start_time;
 
 func _ready():
 	start_time = OS.get_ticks_msec()
+	$AudioStreamPlayer.play(0)
 
 func _process(_delta):
 	var braced_channels = []

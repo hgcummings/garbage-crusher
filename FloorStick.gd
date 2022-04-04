@@ -4,6 +4,12 @@ var ChannelStick = load("res://ChannelStick.tscn")
 var Helpers = load("res://StickHelpers.gd")
 
 var strength
+var level = 1
+var stick_status = "default"
+var stick_material = "wood"
+
+func _ready():
+	$Sprite.texture = Helpers.texture(stick_material, stick_status, level)
 
 func fall_in_hole():
 	queue_free()

@@ -13,13 +13,19 @@ var left_wall
 var right_wall
 
 var stick_material = "wood"
-var stick_status = "metal"
+var stick_status = "default"
 
 func _ready():
 	rng.randomize()
-	strength = rng.randf_range(9, 12)
+	
+	if stick_material == "wood":
+		strength = rng.randf_range(10, 50)
+	else:
+		strength = rng.randf_range(250, 350)
+
 	left_wall = get_node("/root/Node2D/LeftWall")
 	right_wall = get_node("/root/Node2D/RightWall")
+	$Sprite.texture = Helpers.texture(stick_material, stick_status, level)
 
 func apply_force(force):
 	if force > strength:
@@ -31,7 +37,7 @@ func apply_force(force):
 	else:
 		stick_status = "braced"
 
-	_update_sprite()
+	$Sprite.texture = Helpers.texture(stick_material, stick_status, level)
 
 	return false
 
@@ -47,12 +53,15 @@ func get_length():
 	# The width of a RectangleShape2D is twice the extent
 	return $CollisionShape2D.shape.extents.x * 2
 
-func upgrade(strength):
+func upgrade(upgrade_stick):
 	if self.level >= 5:
 		return false
 		
+	if self.stick_material != upgrade_stick.stick_material:
+		return false
+		
 	self.level += 1
-	self.strength += strength
+	self.strength += upgrade_stick.strength
 	return true
 
 func highlight():
@@ -74,10 +83,7 @@ func _physics_process(delta):
 func _process(delta):
 	if !is_braced:
 		stick_status = "default"
-	_update_sprite()
-
-func _update_sprite():
-	$Sprite.texture = Helpers.textures[stick_material][stick_status][level - 1]
+	$Sprite.texture = Helpers.texture(stick_material, stick_status, level)
 
 # Debug functionality
 func _on_Stick_input_event(viewport, event, shape_idx):

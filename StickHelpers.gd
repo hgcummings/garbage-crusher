@@ -1,5 +1,10 @@
 static func transfer_stick_properties(from_stick, to_stick):
 	to_stick.strength = from_stick.strength
+	to_stick.level = from_stick.level
+	to_stick.stick_material = from_stick.stick_material
+	
+static func texture(material, status, level):
+	return textures[material][status][level - 1]
 
 const textures = {
 	"wood": {
@@ -24,7 +29,7 @@ const textures = {
 			preload("res://sprites/materials/sticks/4-alert.png"),
 			preload("res://sprites/materials/sticks/5-alert.png")
 		]
-	} ,
+	},
 	"metal": {
 		"default": [
 			preload("res://sprites/materials/metal/1.png"),

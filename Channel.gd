@@ -32,6 +32,6 @@ func add_stick(stick):
 	if collision:
 		contents.remove_child(new_stick)
 		if collision.collider in contents.get_children():
-			return collision.collider.upgrade(new_stick.strength)
+			return collision.collider.upgrade(new_stick)
 		return false
 	return true

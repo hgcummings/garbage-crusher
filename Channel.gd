@@ -6,6 +6,9 @@ var contents
 export var layer_zero_indexed = 0
 const wall_layer = 8
 
+func _ready():
+	contents = self.get_node("Contents")
+
 func add_stick(stick):
 	var new_stick = stick.as_channel_stick() as KinematicBody2D
 	print(new_stick)

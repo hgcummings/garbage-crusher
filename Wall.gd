@@ -53,7 +53,7 @@ func _physics_process(delta):
 				collision = collider.move_and_collide(dv, true, true, true)
 
 	if chain_reaches_opposite_wall:
-		stress += delta * speed
+		stress += abs(delta * speed)
 		
 		while !chain.empty():
 			chain.pop_back().is_braced = true

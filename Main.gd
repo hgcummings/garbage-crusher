@@ -21,8 +21,10 @@ func _process(_delta):
 	if braced_channels.empty():
 		return
 	
-	var stress = $LeftWall.stress / braced_channels.size()
+	var stress = max($LeftWall.stress, $RightWall.stress) / braced_channels.size()
+	#print(stress, " ", $LeftWall.stress, " ", $RightWall.stress)
 	
+	braced_channels.shuffle()
 	for channel_group in braced_channels:
 		var broke = false
 		for stick in get_tree().get_nodes_in_group(channel_group):
@@ -30,9 +32,11 @@ func _process(_delta):
 				broke = true
 				break
 		if broke:
+			$LeftWall.stress = 0
+			$RightWall.stress = 0
 			for stick in get_tree().get_nodes_in_group(channel_group):
 				stick.is_braced = false
-
+			break
 				
 func _check_if_braced(group):
 	for stick in get_tree().get_nodes_in_group(group):

@@ -87,7 +87,7 @@ position = Vector2( 1024, 300 )
 rotation = 3.14159
 direction = -1
 
-[node name="Chute" parent="." instance=ExtResource( 6 )]
+[node name="Chute1" parent="." instance=ExtResource( 6 )]
 position = Vector2( 512, 0 )
 
 [node name="Chute2" parent="." instance=ExtResource( 6 )]
@@ -107,7 +107,7 @@ scale = Vector2( 0.25, 0.25 )
 [node name="Players" type="Node2D" parent="."]
 
 [node name="Player2" parent="Players" instance=ExtResource( 3 )]
-position = Vector2( 386, 541 )
+position = Vector2( 512, 611 )
 rotation = 3.14159
 player_number = 2
 idle_sprite = ExtResource( 10 )
@@ -115,4 +115,4 @@ holding_sprite = ExtResource( 9 )
 busy_sprite = ExtResource( 12 )
 
 [node name="Player" parent="Players" instance=ExtResource( 3 )]
-position = Vector2( 654, 59 )
+position = Vector2( 512, -11 )

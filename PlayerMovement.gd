@@ -10,13 +10,21 @@ export var random_throw_angular_velocity = 1.0
 var speed = 0
 var acceleration = MAX_SPEED * 3
 
+var initial_delay = 1
+var initial_speed = MAX_SPEED / 2
+
 onready var channel1 = get_node("/root/Node2D/Channels/Channel1")
 onready var channel2 = get_node("/root/Node2D/Channels/Channel2")
+
+onready var chute1 = get_node("/root/Node2D/Chute1")
+onready var chute2 = get_node("/root/Node2D/Chute2")
+
 var heldItem = null
 export var player_number = 1
 export(Texture) var idle_sprite setget set_idle_sprite
 export(Texture) var holding_sprite
 export(Texture) var busy_sprite
+
 
 var inputLinearDirection = 0
 var inputAngularDirection = 0
@@ -72,7 +80,7 @@ func handle_drop():
 	$HeldItemSprite.get_node("Sprite").queue_free()
 	heldItem = null
 
-func process_inputs():
+func process_inputs():	
 	# Process inputs
 	inputLinearDirection = 0
 	inputAngularDirection = 0
@@ -110,17 +118,31 @@ func process_inputs():
 		get_node("Sprite").texture = idle_sprite
 			
 func _physics_process(delta):
-	process_inputs()
-
-	rotation_degrees += (inputAngularDirection * ANGULAR_SPEED_DEGS) % 360
-	
-	if inputLinearDirection == 0:
-		speed = 0
+	if initial_delay > 0:
+		initial_delay -= delta
+		return
+	elif initial_speed > 0:
+		add_collision_exception_with(chute1)
+		add_collision_exception_with(chute2)
+		
+		speed = initial_speed
+		inputLinearDirection = 1
+		initial_speed -= (delta * acceleration / 4)
 	else:
-		speed += acceleration * delta
-		speed = min(speed, MAX_SPEED)
+		
+		remove_collision_exception_with(chute1)
+		remove_collision_exception_with(chute2)
+		process_inputs()
+
+		rotation_degrees += (inputAngularDirection * ANGULAR_SPEED_DEGS) % 360
+		
+		if inputLinearDirection == 0:
+			speed = 0
+		else:
+			speed += acceleration * delta
+			speed = min(speed, MAX_SPEED)	
+
 	movementVector = Vector2(cos(rotation + PI / 2), sin(rotation + PI / 2)) * inputLinearDirection * speed
-	
 	move_and_slide(movementVector)
 
 func _process(delta):

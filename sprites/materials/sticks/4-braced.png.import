@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/stick-1-danger.png-c28e79a86e589baad9594979270b113b.stex"
+path="res://.import/4-braced.png-ec6330a5888b8c2a7620999b9bb40f30.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/stick-1-danger.png"
-dest_files=[ "res://.import/stick-1-danger.png-c28e79a86e589baad9594979270b113b.stex" ]
+source_file="res://sprites/materials/sticks/4-braced.png"
+dest_files=[ "res://.import/4-braced.png-ec6330a5888b8c2a7620999b9bb40f30.stex" ]
 
 [params]
 

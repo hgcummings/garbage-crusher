@@ -115,7 +115,7 @@ func _physics_process(delta):
 		speed = 0
 	else:
 		speed += acceleration * delta
-	
+		speed = min(speed, MAX_SPEED)
 	movementVector = Vector2(cos(rotation + PI / 2), sin(rotation + PI / 2)) * inputLinearDirection * speed
 	
 	move_and_slide(movementVector)

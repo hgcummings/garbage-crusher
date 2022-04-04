@@ -14,10 +14,20 @@ onready var channel1 = get_node("/root/Node2D/Channels/Channel1")
 onready var channel2 = get_node("/root/Node2D/Channels/Channel2")
 var heldItem = null
 export var player_number = 1
+export(Texture) var idle_sprite setget set_idle_sprite
+export(Texture) var busy_sprite
 
 var inputLinearDirection = 0
 var inputAngularDirection = 0
 var movementVector = Vector2.ZERO
+
+func set_idle_sprite(tex):
+	idle_sprite = tex
+	if Engine.editor_hint:
+		get_node("Sprite").texture = idle_sprite
+		
+func _ready():
+	get_node("Sprite").texture = idle_sprite
 	
 func handle_pick_up():
 	heldItem = $RayCast2D.get_collider()

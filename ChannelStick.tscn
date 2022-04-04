@@ -31,5 +31,3 @@ texture = ExtResource( 4 )
 visible = false
 scale = Vector2( 0.129, 0.154 )
 texture = ExtResource( 3 )
-
-[connection signal="input_event" from="." to="." method="_on_Stick_input_event"]

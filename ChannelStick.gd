@@ -84,8 +84,3 @@ func _process(delta):
 	if !is_braced:
 		stick_status = "default"
 	$Sprite.texture = Helpers.texture(stick_material, stick_status, level)
-
-# Debug functionality
-func _on_Stick_input_event(viewport, event, shape_idx):
-	if event is InputEventMouseButton:
-		self.queue_free()

@@ -29,8 +29,11 @@ func add_stick(stick):
 	new_stick.set_collision_mask_bit(wall_layer, true)
 	new_stick.set_collision_mask_bit(layer_zero_indexed, true)
 	
-	if new_stick.move_and_collide(Vector2.ZERO, true, true, true):
+	var collision = new_stick.move_and_collide(Vector2.ZERO, true, true, true)
+	if collision:
 		contents.remove_child(new_stick)
+		if collision.collider in contents.get_children():
+			collision.collider.upgrade(new_stick.strength)
+			return true
 		return false
-	
 	return true

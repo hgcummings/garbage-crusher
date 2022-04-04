@@ -39,6 +39,9 @@ func get_length():
 	# The width of a RectangleShape2D is twice the extent
 	return $CollisionShape2D.shape.extents.x * 2
 
+func upgrade(strength):
+	self.strength += strength
+	
 func _physics_process(delta):
 	if is_braced:
 		return

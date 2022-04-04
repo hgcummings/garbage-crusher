@@ -5,6 +5,7 @@ var contents
 
 export var layer_zero_indexed = 0
 const wall_layer = 8
+const guide_layer = 14
 const interactable_layer = 12
 
 onready var walls = [
@@ -30,8 +31,8 @@ func upgrade(stick):
 			upper_bound = min(upper_bound, position - child_stick.get_length())	
 
 	if lower_bound > upper_bound:
-		lower_bound -= 3.5
-		upper_bound += 3.5
+		lower_bound -= 2
+		upper_bound += 2
 		
 	if lower_bound > upper_bound:
 		return false
@@ -48,6 +49,7 @@ func upgrade(stick):
 	
 	new_stick.set_collision_layer_bit(layer_zero_indexed, true)
 	new_stick.set_collision_mask_bit(wall_layer, true)
+	new_stick.set_collision_mask_bit(guide_layer, true)
 	new_stick.set_collision_mask_bit(layer_zero_indexed, true)
 	new_stick.set_collision_mask_bit(interactable_layer, true)
 	

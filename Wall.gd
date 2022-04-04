@@ -1,8 +1,9 @@
 extends KinematicBody2D
 
-export var speed = 1
+export var direction = 1
 
-const acceleration_rate = 0.1
+const SPEED = 0.25
+const ACCELERATION_RATE = 0.1
 
 var acceleration
 var velocity
@@ -14,8 +15,8 @@ const channel_layers = [10,11]
 const wall_layer = 8
 
 func _ready():
-	acceleration = speed * acceleration_rate
-	velocity = Vector2(speed, 0)
+	acceleration = SPEED * ACCELERATION_RATE
+	velocity = Vector2(SPEED * direction, 0)
 	collision_layer = 0
 	self.set_collision_layer_bit(8, true)
 	
@@ -27,40 +28,12 @@ func _ready():
 	player = get_node("/root/Node2D/Player")
 
 func _physics_process(delta):
-	velocity.x += delta * acceleration
-	
-	var chain = [self]
-		
-	var chain_reaches_opposite_wall = false
-	var dv = delta * velocity
-	
-	add_collision_exception_with(player)
-	
-	var collision = self.move_and_collide(dv, true, true, true)
-	if collision:
-		while (collision):
-			var collider = collision.collider
-			
-			if chain.find(collider) != -1:
-				break
-			elif collider.get_script() == self.get_script():
-				chain_reaches_opposite_wall = true
-				break
-			else:
-				chain.append(collider)
-				collision = collider.move_and_collide(dv, true, true, true)
-
-	if chain_reaches_opposite_wall:
-		stress += abs(delta * speed)
-		
-		while !chain.empty():
-			chain.pop_back().is_braced = true
+	if is_braced:
+		stress += abs(velocity.x)
 	else:
 		stress = 0
-		
-		while !chain.empty():
-			var elem = chain.pop_back()
-			elem.move_and_collide(dv)
-			elem.is_braced = false
+		add_collision_exception_with(player)
+		move_and_collide(velocity)
+		remove_collision_exception_with(player)
 
-	remove_collision_exception_with(player)
+

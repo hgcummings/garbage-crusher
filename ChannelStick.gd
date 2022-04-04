@@ -8,9 +8,14 @@ var rng = RandomNumberGenerator.new()
 var strength
 var is_braced = false
 
+var left_wall
+var right_wall
+
 func _ready():
 	rng.randomize()
-	strength = rng.randf_range(2.5, 3.5)
+	strength = rng.randf_range(9, 12)
+	left_wall = get_node("/root/Node2D/LeftWall")
+	right_wall = get_node("/root/Node2D/RightWall")
 
 func apply_force(force):
 	if force > strength:
@@ -30,6 +35,21 @@ func as_floor_stick():
 func as_channel_stick():
 	return self
 
+func _physics_process(delta):
+	if is_braced:
+		return
+	
+	remove_collision_exception_with(left_wall)
+	remove_collision_exception_with(right_wall)
+	var test_collision = move_and_collide(Vector2.ZERO, true, true, true)
+	if (test_collision && test_collision.travel.y != 0):
+		is_braced = true
+		pass
+	else:
+		move_and_collide(Vector2.ZERO)
+	add_collision_exception_with(left_wall)
+	add_collision_exception_with(right_wall)
+		
 func _process(delta):
 	$Sprite_Braced.visible = is_braced
 	if !is_braced:

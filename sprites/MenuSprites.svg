@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="1024mm"
+   height="600mm"
+   viewBox="0 0 1024 600"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04, custom)"
+   sodipodi:docname="MenuSprites.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.22627417"
+     inkscape:cx="1816.3805"
+     inkscape:cy="1270.5825"
+     inkscape:window-width="1920"
+     inkscape:window-height="1126"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       xml:space="preserve"
+       style="font-size:94.4298px;line-height:1.25;font-family:Cantarell;-inkscape-font-specification:'Cantarell, Normal';stroke-width:0.885278"
+       x="102.52814"
+       y="199.77798"
+       id="text3820"
+       inkscape:export-filename="/home/emily/Programming/garbage-crusher/sprites/menus/title.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan3818"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'URW Gothic';-inkscape-font-specification:'URW Gothic';stroke-width:0.885278"
+         x="102.52814"
+         y="199.77798">gArbaGE <tspan
+   style="font-weight:bold"
+   id="tspan26318">cRuSHeR</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:94.4298px;line-height:1.25;font-family:Cantarell;-inkscape-font-specification:'Cantarell, Normal';stroke-width:0.885278"
+       x="123.91283"
+       y="568.35101"
+       id="text3820-8"
+       inkscape:export-filename="/home/emily/Programming/garbage-crusher/sprites/menus/defeat.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan3818-1"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'URW Gothic';-inkscape-font-specification:'URW Gothic';stroke-width:0.885278"
+         x="123.91283"
+         y="568.35101"><tspan
+   style="font-weight:bold"
+   id="tspan26318-0">cRuSHinG </tspan>Defeat!</tspan></text>
+    <rect
+       style="opacity:1;fill:#917c6f;stroke:#000000;stroke-width:9.79695;stroke-linecap:round;stroke-linejoin:bevel;stroke-opacity:1"
+       id="rect14918"
+       width="422.1492"
+       height="84.484482"
+       x="455.35898"
+       y="369.79303"
+       ry="20.39555" />
+    <text
+       xml:space="preserve"
+       style="font-size:46.0819px;line-height:1.25;font-family:Cantarell;-inkscape-font-specification:'Cantarell, Normal';stroke-width:1.72807"
+       x="568.64233"
+       y="304.36255"
+       id="text19248"
+       inkscape:export-filename="/home/emily/Programming/garbage-crusher/sprites/menus/play.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan19246"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:46.0819px;font-family:'URW Gothic';-inkscape-font-specification:'URW Gothic';stroke-width:1.72807"
+         x="568.64233"
+         y="304.36255">Play</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:46.0819px;line-height:1.25;font-family:Cantarell;-inkscape-font-specification:'Cantarell, Normal';stroke-width:1.72807"
+       x="183.5276"
+       y="314.12601"
+       id="text19248-3"
+       inkscape:export-filename="/home/emily/Programming/garbage-crusher/sprites/menus/play-again.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan19246-0"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:46.0819px;font-family:'URW Gothic';-inkscape-font-specification:'URW Gothic';stroke-width:1.72807"
+         x="183.5276"
+         y="314.12601">Play again</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:46.0819px;line-height:1.25;font-family:Cantarell;-inkscape-font-specification:'Cantarell, Normal';stroke-width:1.72807"
+       x="753.96576"
+       y="321.52795"
+       id="text19248-8"
+       inkscape:export-filename="/home/emily/Programming/garbage-crusher/sprites/menus/quit.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan19246-4"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:46.0819px;font-family:'URW Gothic';-inkscape-font-specification:'URW Gothic';stroke-width:1.72807"
+         x="753.96576"
+         y="321.52795">Quit</tspan></text>
+  </g>
+</svg>

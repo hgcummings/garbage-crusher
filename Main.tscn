@@ -107,11 +107,12 @@ scale = Vector2( 0.25, 0.25 )
 [node name="Players" type="Node2D" parent="."]
 
 [node name="Player2" parent="Players" instance=ExtResource( 3 )]
-position = Vector2( 512, 0 )
+position = Vector2( 386, 541 )
+rotation = 3.14159
 player_number = 2
 idle_sprite = ExtResource( 10 )
 holding_sprite = ExtResource( 9 )
 busy_sprite = ExtResource( 12 )
 
 [node name="Player" parent="Players" instance=ExtResource( 3 )]
-position = Vector2( 659.675, 74.4302 )
+position = Vector2( 654, 59 )

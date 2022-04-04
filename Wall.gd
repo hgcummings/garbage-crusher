@@ -9,7 +9,7 @@ var acceleration
 var velocity
 var is_braced = false
 var stress = 0
-var player
+var players
 
 const channel_layers = [10,11]
 const wall_layer = 8
@@ -25,15 +25,19 @@ func _ready():
 	for layer in channel_layers:	
 		self.set_collision_mask_bit(layer, true)
 	
-	player = get_node("/root/Node2D/Player")
+	players = get_node("/root/Node2D/Players").get_children()
 
 func _physics_process(delta):
 	if is_braced:
 		stress += abs(velocity.x)
 	else:
 		stress = 0
-		add_collision_exception_with(player)
+		for player in players:
+			add_collision_exception_with(player)
+		
 		move_and_collide(velocity)
-		remove_collision_exception_with(player)
+		
+		for player in players:
+			remove_collision_exception_with(player)
 
 

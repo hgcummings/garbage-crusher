@@ -1,5 +1,10 @@
 extends Node2D
 
+var start_time;
+
+func _ready():
+	start_time = OS.get_ticks_msec()
+
 func _process(_delta):
 	var braced_channels = []
 	
@@ -39,6 +44,12 @@ const STICK_MARGIN = -1
 				
 func _check_if_braced(channel):
 	var distance_between_walls = $RightWall.global_position.x - $LeftWall.global_position.x
+	
+	if distance_between_walls == 0:
+		GlobalTimer.latest_time = (OS.get_ticks_msec() - start_time) / 1000
+		get_tree().change_scene("res://EndScreen.tscn")
+		return
+	
 	var sticks = channel.get_node("Contents").get_children()
 	var sticks_length = 0
 		

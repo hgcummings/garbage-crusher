@@ -54,11 +54,18 @@ func get_length():
 	return $CollisionShape2D.shape.extents.x * 2
 
 func upgrade(upgrade_stick):
+	if self.stick_material != upgrade_stick.stick_material:
+		var new_stick = upgrade_stick.as_channel_stick()
+		self.get_parent().add_child(new_stick)
+		new_stick.global_position = self.global_position
+		new_stick.collision_layer = self.collision_layer
+		new_stick.collision_mask = self.collision_mask
+		self.queue_free()
+		return true	
+	
 	if self.level + upgrade_stick.level > 5:
 		return false
 		
-	if self.stick_material != upgrade_stick.stick_material:
-		return false
 		
 	self.level += upgrade_stick.level
 	self.strength += upgrade_stick.strength

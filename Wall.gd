@@ -2,8 +2,8 @@ extends KinematicBody2D
 
 export var direction = 1
 
-const SPEED = 0.2
-const ACCELERATION_RATE = 0.15
+const SPEED = 0.1
+const ACCELERATION_RATE = 0.05
 
 var acceleration
 var velocity
@@ -28,6 +28,8 @@ func _ready():
 	players = get_node("/root/Node2D/Players").get_children()
 
 func _physics_process(delta):
+	velocity.x += delta * acceleration * direction
+
 	if is_braced:
 		stress += abs(velocity.x)
 	else:

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/stick-1-danger.png-c28e79a86e589baad9594979270b113b.stex"
+path="res://.import/crusher.png-607e800eccc48199661c69b2ce9b1126.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/stick-1-danger.png"
-dest_files=[ "res://.import/stick-1-danger.png-c28e79a86e589baad9594979270b113b.stex" ]
+source_file="res://sprites/environment/crusher.png"
+dest_files=[ "res://.import/crusher.png-607e800eccc48199661c69b2ce9b1126.stex" ]
 
 [params]
 

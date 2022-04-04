@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/sprite-blue-idle.png-aa3067a4066d576f0799fcf2c398247b.stex"
+path="res://.import/5-alert.png-baef8fd558577db480800987c4ac5bbb.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/sprite-blue-idle.png"
-dest_files=[ "res://.import/sprite-blue-idle.png-aa3067a4066d576f0799fcf2c398247b.stex" ]
+source_file="res://sprites/materials/sticks/5-alert.png"
+dest_files=[ "res://.import/5-alert.png-baef8fd558577db480800987c4ac5bbb.stex" ]
 
 [params]
 

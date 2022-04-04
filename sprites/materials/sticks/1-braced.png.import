@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/sprite-pink-holding.png-fdb8acfedea289542101e9eb7111c328.stex"
+path="res://.import/1-braced.png-6fbe50d6884c109d0ba66f409c25ed79.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/sprite-pink-holding.png"
-dest_files=[ "res://.import/sprite-pink-holding.png-fdb8acfedea289542101e9eb7111c328.stex" ]
+source_file="res://sprites/materials/sticks/1-braced.png"
+dest_files=[ "res://.import/1-braced.png-6fbe50d6884c109d0ba66f409c25ed79.stex" ]
 
 [params]
 

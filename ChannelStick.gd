@@ -3,9 +3,26 @@ extends KinematicBody2D
 var FloorStick = load("res://FloorStick.tscn")
 var Helpers = load("res://StickHelpers.gd")
 
+var tex_2 = preload("res://sprites/materials/sticks/2.png")
+var tex_2_braced = preload("res://sprites/materials/sticks/2-braced.png")
+var tex_2_alert = preload("res://sprites/materials/sticks/2-alert.png")
+
+var tex_3 = preload("res://sprites/materials/sticks/3.png")
+var tex_3_braced = preload("res://sprites/materials/sticks/3-braced.png")
+var tex_3_alert = preload("res://sprites/materials/sticks/3-alert.png")
+
+var tex_4 = preload("res://sprites/materials/sticks/4.png")
+var tex_4_braced = preload("res://sprites/materials/sticks/4-braced.png")
+var tex_4_alert = preload("res://sprites/materials/sticks/4-alert.png")
+
+var tex_5 = preload("res://sprites/materials/sticks/5.png")
+var tex_5_braced = preload("res://sprites/materials/sticks/5-braced.png")
+var tex_5_alert = preload("res://sprites/materials/sticks/5-alert.png")
+
 var velocity = Vector2(0,0)
 var rng = RandomNumberGenerator.new()
 var strength
+var level = 1
 var is_braced = false
 
 var left_wall
@@ -40,7 +57,28 @@ func get_length():
 	return $CollisionShape2D.shape.extents.x * 2
 
 func upgrade(strength):
+	if self.level >= 5:
+		return false
+		
+	self.level += 1
 	self.strength += strength
+	if self.level == 2:
+		$Sprite.texture = tex_2
+		$Sprite_Braced.texture = tex_2_braced
+		$Sprite_Alarm.texture = tex_2_alert
+	elif self.level == 3:
+		$Sprite.texture = tex_3
+		$Sprite_Braced.texture = tex_3_braced
+		$Sprite_Alarm.texture = tex_3_alert
+	elif self.level == 4:
+		$Sprite.texture = tex_4
+		$Sprite_Braced.texture = tex_4_braced
+		$Sprite_Alarm.texture = tex_4_alert
+	elif self.level == 5:
+		$Sprite.texture = tex_5
+		$Sprite_Braced.texture = tex_5_braced
+		$Sprite_Alarm.texture = tex_5_alert
+	return true
 	
 func _physics_process(delta):
 	if is_braced:

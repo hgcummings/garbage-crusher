@@ -2,7 +2,7 @@
 
 [ext_resource path="res://FloorStick.gd" type="Script" id=1]
 [ext_resource path="res://InteractiveChild.gd" type="Script" id=2]
-[ext_resource path="res://sprites/stick-1.png" type="Texture" id=3]
+[ext_resource path="res://sprites/materials/sticks/1.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 33, 5 )

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/crusher.png-7f287abe2a441a86125798ea8ce301f2.stex"
+path="res://.import/sprite-pink-idle.png-9b666e7a956d09de92597e1f7dda72b3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/crusher.png"
-dest_files=[ "res://.import/crusher.png-7f287abe2a441a86125798ea8ce301f2.stex" ]
+source_file="res://sprites/player/sprite-pink-idle.png"
+dest_files=[ "res://.import/sprite-pink-idle.png-9b666e7a956d09de92597e1f7dda72b3.stex" ]
 
 [params]
 

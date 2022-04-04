@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/robot-blue-busy.png-c19b50200982623da2ad2d311b5d946c.stex"
+path="res://.import/4-braced.png-ec6330a5888b8c2a7620999b9bb40f30.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/robot-blue-busy.png"
-dest_files=[ "res://.import/robot-blue-busy.png-c19b50200982623da2ad2d311b5d946c.stex" ]
+source_file="res://sprites/materials/sticks/4-braced.png"
+dest_files=[ "res://.import/4-braced.png-ec6330a5888b8c2a7620999b9bb40f30.stex" ]
 
 [params]
 

@@ -16,6 +16,7 @@ script = ExtResource( 5 )
 
 [node name="Channel1" parent="Channels" groups=["channel1"] instance=ExtResource( 2 )]
 position = Vector2( 512, 180 )
+layer_zero_indexed = 10
 
 [node name="Contents" type="Node2D" parent="Channels/Channel1"]
 
@@ -46,6 +47,7 @@ collision_mask = 1280
 
 [node name="Channel2" parent="Channels" groups=["channel2"] instance=ExtResource( 2 )]
 position = Vector2( 512, 420 )
+layer_zero_indexed = 11
 
 [node name="Contents" type="Node2D" parent="Channels/Channel2"]
 

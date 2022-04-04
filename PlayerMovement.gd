@@ -1,7 +1,5 @@
 extends KinematicBody2D
 
-var ChannelStick = preload("ChannelStick.tscn")
-var FloorStick = preload("FloorStick.tscn")
 var rng = RandomNumberGenerator.new()
 
 export var SPEED = 360
@@ -17,16 +15,6 @@ export var player_number = 1
 var inputLinearDirection = 0
 var inputAngularDirection = 0
 var movementVector = Vector2.ZERO
-
-func convert_stick_type(stick, type):
-	var new_stick
-	if type == "floor":
-		new_stick = FloorStick.instance()
-	if type == "channel":
-		new_stick = ChannelStick.instance()
-	
-	new_stick.strength = stick.strength
-	return new_stick
 	
 func handle_pick_up():
 	heldItem = $RayCast2D.get_collider()
@@ -46,23 +34,23 @@ func handle_pick_up():
 	$HeldItemSprite.add_child(heldItem.get_node("Sprite").duplicate())
 
 func handle_drop():
-	heldItem = convert_stick_type(heldItem, "floor")
+	heldItem = heldItem.as_floor_stick()
 	
 	var areas = $HeldItemSprite.get_overlapping_areas()
 	
 	$HeldItemSprite.get_node("Sprite").queue_free()
-			
-	if channel1 in areas:
-		print("channel1")
-	if channel2 in areas:
-		print("channel2")	
-	
-	get_tree().get_root().call_deferred("add_child", heldItem)
 	heldItem.global_position = $HeldItemSprite.global_position
-	heldItem.angular_velocity = rng.randf_range(-random_throw_angular_velocity, random_throw_angular_velocity)
-	heldItem.linear_velocity = rng.randf_range(0, random_throw_velocity) * ($HeldItemSprite.global_position - global_position)
-	if rng.randi_range(0, 20) == 0:
-		heldItem.linear_velocity = 20 * ($HeldItemSprite.global_position - global_position)
+	
+	if channel1 in areas:
+		channel1.add_stick(heldItem)
+	elif channel2 in areas:
+		channel2.add_stick(heldItem)
+	else:
+		get_tree().get_root().call_deferred("add_child", heldItem)
+		heldItem.angular_velocity = rng.randf_range(-random_throw_angular_velocity, random_throw_angular_velocity)
+		heldItem.linear_velocity = rng.randf_range(0, random_throw_velocity) * ($HeldItemSprite.global_position - global_position)
+		if rng.randi_range(0, 20) == 0:
+			heldItem.linear_velocity = 20 * ($HeldItemSprite.global_position - global_position)
 			
 	heldItem = null
 

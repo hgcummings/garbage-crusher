@@ -13,8 +13,6 @@ var player
 const channel_layers = [10,11]
 const wall_layer = 8
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	acceleration = speed * acceleration_rate
 	velocity = Vector2(speed, 0)

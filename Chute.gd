@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-const FloorStick = preload("res://FloorStick.tscn")
+var FloorStick = load("res://FloorStick.tscn")
 var rng = RandomNumberGenerator.new()
 
 const avg_spawn_interval_s = 3

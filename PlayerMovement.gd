@@ -65,5 +65,4 @@ func _physics_process(delta):
 	
 	movementVector = Vector2(cos(rotation + PI / 2), sin(rotation + PI / 2)) * inputLinearDirection * SPEED
 	
-	if inputLinearDirection != 0:
-		move_and_slide(movementVector)
+	move_and_slide(movementVector)

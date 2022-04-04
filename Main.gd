@@ -45,8 +45,6 @@ func _check_if_braced(channel):
 	for stick in sticks:
 		sticks_length += stick.get_length() + STICK_MARGIN
 
-	print(sticks_length, " ", distance_between_walls)
-
 	var is_braced = distance_between_walls < sticks_length + MARGIN
 	
 	for stick in sticks:

@@ -15,3 +15,9 @@ func as_channel_stick():
 	var new_stick = ChannelStick.instance()
 	Helpers.transfer_stick_properties(self, new_stick)
 	return new_stick
+
+func highlight():
+	$Sprite.modulate = Color(2,2,2)
+
+func _process(delta):
+	$Sprite.modulate = Color(1,1,1)

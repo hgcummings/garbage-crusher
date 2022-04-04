@@ -79,6 +79,11 @@ func upgrade(strength):
 		$Sprite_Braced.texture = tex_5_braced
 		$Sprite_Alarm.texture = tex_5_alert
 	return true
+
+func highlight():
+	$Sprite.modulate = Color(2,2,2)
+	$Sprite_Braced.modulate = Color(2,2,2)
+	$Sprite_Alarm.modulate = Color(2,2,2)	
 	
 func _physics_process(delta):
 	if is_braced:
@@ -91,6 +96,10 @@ func _physics_process(delta):
 	add_collision_exception_with(right_wall)
 
 func _process(delta):
+	$Sprite.modulate = Color(1,1,1)
+	$Sprite_Braced.modulate = Color(1,1,1)
+	$Sprite_Alarm.modulate = Color(1,1,1)
+	
 	$Sprite_Braced.visible = is_braced
 	if !is_braced:
 		$Sprite_Alarm.visible = false

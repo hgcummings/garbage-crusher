@@ -119,3 +119,8 @@ func _physics_process(delta):
 	movementVector = Vector2(cos(rotation + PI / 2), sin(rotation + PI / 2)) * inputLinearDirection * speed
 	
 	move_and_slide(movementVector)
+
+func _process(delta):
+	var object = $RayCast2D.get_collider()
+	if object and object.has_method("highlight"):
+		object.highlight()

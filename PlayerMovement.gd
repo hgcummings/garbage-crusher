@@ -50,15 +50,12 @@ func handle_pick_up():
 
 func handle_drop():
 	heldItem = heldItem.as_floor_stick()
-	
-	var areas = $HeldItemSprite.get_overlapping_areas()
 	heldItem.global_position = $HeldItemSprite.global_position
 	
-	if channel1 in areas:
-		if not channel1.add_stick(heldItem):
-			return
-	elif channel2 in areas:
-		if not channel2.add_stick(heldItem):
+	var object = $RayCast2D.get_collider()
+	
+	if is_instance_valid(object) && object.has_method("upgrade"):
+		if !object.upgrade(heldItem):
 			return
 	else:
 		get_tree().get_root().call_deferred("add_child", heldItem)

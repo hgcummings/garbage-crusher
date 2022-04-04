@@ -10,7 +10,7 @@ const interactable_layer = 12
 func _ready():
 	contents = self.get_node("Contents")
 
-func add_stick(stick):
+func upgrade(stick):
 	var new_stick = stick.as_channel_stick() as KinematicBody2D
 
 	contents.add_child(new_stick)
@@ -35,3 +35,9 @@ func add_stick(stick):
 			return collision.collider.upgrade(new_stick)
 		return false
 	return true
+
+func highlight():
+	$Sprite.modulate = Color(2,2,2)
+
+func unhighlight():
+	$Sprite.modulate = Color(1,1,1)

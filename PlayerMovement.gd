@@ -61,7 +61,7 @@ func handle_pick_up():
 	elif heldItem in channel2.get_node("Contents").get_children():
 		channel2.get_node("Contents").call_deferred("remove_child", heldItem)
 	else:
-		get_tree().get_root().call_deferred("remove_child", heldItem)
+		get_node("/root/Node2D").call_deferred("remove_child", heldItem)
 	
 	$HeldItemSprite.add_child(heldItem.get_node("Sprite").duplicate())
 
@@ -75,7 +75,7 @@ func handle_drop():
 		if !object.upgrade(heldItem):
 			return
 	else:
-		get_tree().get_root().call_deferred("add_child", heldItem)
+		get_node("/root/Node2D").call_deferred("add_child", heldItem)
 		heldItem.angular_velocity = rng.randf_range(-random_throw_angular_velocity, random_throw_angular_velocity)
 		heldItem.linear_velocity = rng.randf_range(0, random_throw_velocity) * ($HeldItemSprite.global_position - global_position)
 		if rng.randi_range(0, 20) == 0:

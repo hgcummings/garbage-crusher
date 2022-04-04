@@ -21,5 +21,5 @@ func _process(delta):
 		new_stick.strength = rng.randf_range(2.5, 3.5)
 		if rng.randf() < 0.2:
 			new_stick.stick_material = "metal"
-		get_tree().get_root().add_child(new_stick)
+		get_node("/root/Node2D").add_child(new_stick)
 

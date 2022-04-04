@@ -11,7 +11,7 @@ var speed = 0
 var acceleration = MAX_SPEED * 3
 
 var initial_delay = 1
-var initial_speed = MAX_SPEED / 2
+var initial_speed = MAX_SPEED / 1.5
 
 onready var channel1 = get_node("/root/Node2D/Channels/Channel1")
 onready var channel2 = get_node("/root/Node2D/Channels/Channel2")

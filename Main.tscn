@@ -10,7 +10,7 @@
 [ext_resource path="res://Hole.tscn" type="PackedScene" id=8]
 [ext_resource path="res://sprites/player/sprite-pink-holding.png" type="Texture" id=9]
 [ext_resource path="res://sprites/player/sprite-pink-idle.png" type="Texture" id=10]
-[ext_resource path="res://audio/music_loop.ogg" type="AudioStream" id=11]
+[ext_resource path="res://audio/music_loop.mp3" type="AudioStream" id=11]
 [ext_resource path="res://sprites/player/sprite-pink-busy.png" type="Texture" id=12]
 
 [node name="Node2D" type="Node2D"]
@@ -120,3 +120,4 @@ position = Vector2( 512, -10 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
+volume_db = -15.0

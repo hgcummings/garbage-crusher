@@ -28,9 +28,10 @@ texture = ExtResource( 1 )
 shape = SubResource( 1 )
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2( 0.707092, 0 )
 enabled = true
 cast_to = Vector2( 0, 75 )
-collision_mask = 7680
+collision_mask = 7168
 collide_with_areas = true
 
 [node name="HeldItemSprite" type="Area2D" parent="."]

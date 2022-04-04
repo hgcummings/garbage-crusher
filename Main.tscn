@@ -26,27 +26,27 @@ layer_zero_indexed = 10
 [node name="Stick" parent="Channels/Channel1/Contents" groups=["channel_1"] instance=ExtResource( 4 )]
 position = Vector2( -304.799, 0 )
 collision_layer = 1024
-collision_mask = 1280
+collision_mask = 5376
 
 [node name="Stick2" parent="Channels/Channel1/Contents" groups=["channel_1"] instance=ExtResource( 4 )]
 position = Vector2( 297, 0 )
 collision_layer = 1024
-collision_mask = 1280
+collision_mask = 5376
 
 [node name="Stick3" parent="Channels/Channel1/Contents" groups=["channel_1"] instance=ExtResource( 4 )]
 position = Vector2( 210, 0 )
 collision_layer = 1024
-collision_mask = 1280
+collision_mask = 5376
 
 [node name="Stick4" parent="Channels/Channel1/Contents" groups=["channel_1"] instance=ExtResource( 4 )]
 position = Vector2( -150, 0 )
 collision_layer = 1024
-collision_mask = 1280
+collision_mask = 5376
 
 [node name="Stick5" parent="Channels/Channel1/Contents" groups=["channel_1"] instance=ExtResource( 4 )]
 position = Vector2( 25, 0 )
 collision_layer = 1024
-collision_mask = 1280
+collision_mask = 5376
 
 [node name="Channel2" parent="Channels" groups=["channel2"] instance=ExtResource( 2 )]
 position = Vector2( 512, 420 )
@@ -57,27 +57,27 @@ layer_zero_indexed = 11
 [node name="Stick6" parent="Channels/Channel2/Contents" groups=["channel_1"] instance=ExtResource( 4 )]
 position = Vector2( -314.698, -0.292908 )
 collision_layer = 2048
-collision_mask = 2304
+collision_mask = 6400
 
 [node name="Stick7" parent="Channels/Channel2/Contents" groups=["channel_1"] instance=ExtResource( 4 )]
 position = Vector2( 312.302, -0.292908 )
 collision_layer = 2048
-collision_mask = 2304
+collision_mask = 6400
 
 [node name="Stick8" parent="Channels/Channel2/Contents" groups=["channel_1"] instance=ExtResource( 4 )]
 position = Vector2( 164.038, -0.292908 )
 collision_layer = 2048
-collision_mask = 2304
+collision_mask = 6400
 
 [node name="Stick9" parent="Channels/Channel2/Contents" groups=["channel_1"] instance=ExtResource( 4 )]
 position = Vector2( -161.314, -0.292908 )
 collision_layer = 2048
-collision_mask = 2304
+collision_mask = 6400
 
 [node name="Stick10" parent="Channels/Channel2/Contents" groups=["channel_1"] instance=ExtResource( 4 )]
-position = Vector2( 28.5355, -0.292908 )
+position = Vector2( 29, -2.98023e-07 )
 collision_layer = 2048
-collision_mask = 2304
+collision_mask = 6400
 
 [node name="LeftWall" parent="." instance=ExtResource( 1 )]
 position = Vector2( 0, 300 )
